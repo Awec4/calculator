@@ -20,6 +20,7 @@ namespace Calculator.ViewModel
         private string display;
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // TODO: Implement Dark Mode, conditional styling is beyond the current scope of this project
         public bool DarkMode
         {
             get; set;
