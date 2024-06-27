@@ -3,6 +3,7 @@ using System.Windows.Input;
 
 namespace Calculator.Utilities
 {
+    // Sourced from https://stackoverflow.com/a/12423962
     public class CommandHandler<T> : ICommand
     {
         private Action<T> _action;
