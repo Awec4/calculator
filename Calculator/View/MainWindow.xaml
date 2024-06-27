@@ -1,0 +1,76 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        xmlns:VM="clr-namespace:Calculator.ViewModel"
+        mc:Ignorable="d"
+        Title="Fraction Calculator" Height="450" Width="800">
+    <Window.DataContext>
+        <VM:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Right">
+            <ToggleButton Name="DarkModeToggle" IsChecked="{Binding Path=DarkMode, Mode=TwoWay}" >
+                DarkMode
+            </ToggleButton>
+        </Grid>
+        <Grid Grid.Row="1" Margin="10">
+            <TextBox Background="Black" Foreground="LimeGreen" TextAlignment="Center" Text="{Binding Path=Display, Mode=TwoWay}"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Command="{Binding Path=NumPressedCommand}" CommandParameter="7">7</Button>
+                <Button Grid.Column="1" Command="{Binding Path=NumPressedCommand}" CommandParameter="8">8</Button>
+                <Button Grid.Column="2" Command="{Binding Path=NumPressedCommand}" CommandParameter="9">9</Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Command="{Binding Path=NumPressedCommand}" CommandParameter="4">4</Button>
+                <Button Grid.Column="1" Command="{Binding Path=NumPressedCommand}" CommandParameter="5">5</Button>
+                <Button Grid.Column="2" Command="{Binding Path=NumPressedCommand}" CommandParameter="6">6</Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Command="{Binding Path=NumPressedCommand}" CommandParameter="1">1</Button>
+                <Button Grid.Column="1" Command="{Binding Path=NumPressedCommand}" CommandParameter="2">2</Button>
+                <Button Grid.Column="2" Command="{Binding Path=NumPressedCommand}" CommandParameter="3">3</Button>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Command="{Binding Path=SlashPressedCommand}">/</Button>
+                <Button Grid.Column="1" Command="{Binding Path=NumPressedCommand}" CommandParameter="0">0</Button>
+                <Button Grid.Column="2" Command="{Binding Path=CalcCommand}">=</Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
