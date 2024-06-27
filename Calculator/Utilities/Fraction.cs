@@ -26,6 +26,16 @@ namespace Calculator.Utilities
             Denominator = denominator;
         }
 
+        /// <summary>
+        /// This method simplifies a fraction by dividing both the Numerator and the Denominator by their Highest Common Factor (HCF).
+        /// <example>
+        /// For example:
+        /// <code>
+        /// Fraction fr = Simplify(new Fraction(2,8));
+        /// </code>
+        /// results in a Fraction <c>fr</c> having the values (1,4).
+        /// </example>
+        /// </summary>
         public static Fraction Simplify(Fraction fr)
         {
             int hcf = MathUtils.HCF(fr.Numerator, fr.Denominator);
